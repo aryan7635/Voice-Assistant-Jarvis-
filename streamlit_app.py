@@ -11,6 +11,11 @@ AGENT_ID = os.getenv("AGENT_ID")
 API_KEY = os.getenv("API_KEY")
 USER_ID = os.getenv("USER_ID", "Aryan")
 
+# Error handling for missing config
+if not AGENT_ID or not API_KEY:
+    st.error("Missing AGENT_ID or API_KEY. Please set them in your environment variables or .env file.")
+    st.stop()
+
 st.title("Voice Assistant (ElevenLabs)")
 
 prompt = st.text_area("Assistant Prompt", "You are a helpful assistant. How can I help you today?")
