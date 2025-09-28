@@ -1,7 +1,6 @@
 import streamlit as st
 from elevenlabs.client import ElevenLabs
 from elevenlabs.conversational_ai.conversation import Conversation
-from elevenlabs.conversational_ai.default_audio_interface import DefaultAudioInterface
 from elevenlabs.types import ConversationConfig
 import os
 from dotenv import load_dotenv
@@ -37,7 +36,6 @@ conversation = Conversation(
     AGENT_ID,
     config=config,
     requires_auth=True,
-    audio_interface=DefaultAudioInterface(),
 )
 
 if "messages" not in st.session_state:
